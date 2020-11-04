@@ -26,21 +26,21 @@ Things started to change with the introduction of more advanced scripting capabi
 
 P2SH-enabled multisig means that addresses are no longer predictable, because the order of the public keys included matters. For example, a 2-of-3 P2SH multisig address could be built 6 different ways, depending on how you order the 3 public keys. If you don't back up the redeemScript, which contains this order, you might not even know which addresses belong to you! All is not lost, since you can "try out" all permutations. But this brute-force approach is costly and non-scalable, as we shall see later on.
 
-Another development occured on the key component side of the address. Some time after P2SH was created, Hierarchical Deterministic (HD) wallets arrived. HD wallets were later standardized in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). Prior to HD wallets, a wallet is simply a collection of random private keys. HD wallets create a key hierarchy, so that the private keys belong to the same family, all generated from the same root, called the master key.
+Another development occured on the key component side of the address. Some time after P2SH was created, Hierarchical Deterministic (HD) wallets arrived, later standardized in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). Prior to HD wallets, a wallet is simply a collection of random private keys. HD wallets create a key hierarchy, so that the private keys belong to the same family, all generated from the same root, called the master key.
 
-HD wallets also make addresses less predictable. With HD wallets, the user primarily deals with the master key. That means that for each address, you need to know from which lineage that public key descended from the master key. This is called BIP32 derivation path. Without knowing the derivation path, you would also not be able to tell which addresses on the blockchain belongs to you.
+HD wallets also make addresses less predictable. For each address in a HD wallet, you need to know from which lineage that particular public key descended from the master key. This is called the BIP32 derivation path. Without knowing the derivation path, you would also not be able to tell which addresses on the blockchain belongs to you.
 
-To sum up: the introduction of BIP16 and BIP32 meant that possession of the private keys no longer suffices. You also need the redeemScript (for BIP16) and derivation path (for BIP32).
+To sum up: the introduction of BIP16 and BIP32 meant that possession of the private keys no longer suffices. You also need the redeemScript (for BIP16) and the derivation path (for BIP32).
 
 <h2>SegWit and Taproot</h2>
 
-Things became even more complicated with the activation of [Segregated Witness](https://en.bitcoin.it/wiki/Segregated_Witness), a much-anticipated suite of protocol updates that fix critical issues such as transaction malleability.
+Things became even more complicated with the activation of [Segregated Witness](https://en.bitcoin.it/wiki/Segregated_Witness), a much-anticipated suite of protocol updates that fixed critical issues such as transaction malleability.
 
 ![Segregated Witness (SegWit)](keys_are_not_enough_03.jpg "Segregated Witness (SegWit)")
 
 SegWit introduced a new and improved address format, called Bech32.
 
-The problem is that now there are even more ways addresses can be generated from a single master key. For each address type (there are now 3: legacy, native segwit, and a hybrid called nested segwit), you face the same problems of BIP16 and BIP32. So you have permutations upon permutations of address possibilities!
+The problem is that now there are even more ways addresses can be generated from a single master key. For each address type (there are now 3: legacy, native segwit, and a hybrid called nested segwit), you face the same problems of BIP16 and BIP32. So you have *permutations upon permutations* of address possibilities!
 
 Levels of permutations:
 1. Address types
@@ -63,6 +63,8 @@ Perhaps realizing the urgency of this problem, Core developer Pieter Wuille set 
 The purpose of the descriptor language is to express precisely how keys are derived and how they are used in creating  addresses.
 
 With descriptors, the user only needs to back up 2 things for their wallet: the master keys (or [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) seeds), and the descriptors. There would no longer be any ambiguity, either in knowing which addresses on the blockchain belong to you, or how to recover the wallet using third-party tools.
+
+In the future, it is crucial that all Bitcoin wallets move to a descriptor-first architecture.
 
 The days of "not your keys, not your coins" are over. Perhaps it is more fitting now to say:
 
