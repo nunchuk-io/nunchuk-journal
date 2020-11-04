@@ -6,7 +6,6 @@ While this slogan was true in the early days of Bitcoin, it is becoming increasi
 
 Since Nunchuk's mission is the proliferation of multisig, it is crucial that the first step is to clear up this misconception. The rest of this article explains why the above slogan no longer suffices.
 
-===
 <h2>Back to basics: Bitcoin addresses</h2>
 
 Bitcoin addresses are constructed using 2 components: a data component, and a script component that explains how those data should be used in locking up the bitcoins.
@@ -14,12 +13,12 @@ Bitcoin addresses are constructed using 2 components: a data component, and a sc
 In the early days of Bitcoin, both the data component and the script component were incredibly simple. The data is usually one single public key in uncompressed form. The script component is similarly straightforward. It either involves a single operation, OP_CHECKSIG (P2PK), or a slightly longer list of operations (P2PKH), but still highly predictable. In those days, the addresses act ultimately as aliases for the public keys. They are practically one and the same.
 
 In this context, the aforementioned slogan makes sense. Whoever posseses the private keys, can deduce the public keys. And from the public keys, the addresses. So possession of the private keys means that:
-(a) You know which addresses your bitcoins are stored in, and 
-(b) How to unlock the bitcoins, once you know the addresses.
+* You know which addresses your bitcoins are stored in, and 
+* How to unlock the bitcoins, once you know the addresses.
 
-===
 <h2>BIP16/BIP32</h2>
-Things started to change with the introduction of more advanced scripting capabilities, beginning with [BIP16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki) (P2SH). With P2SH, the script component can be almost anything. A good example is [Peter Todd's bounties](https://bitcointalk.org/index.php?topic=293382.0) for finding cryptographic hash collisions. But a more typical use case for P2SH invloves multisig wallets, where funds are controlled by more than one public key.
+
+Things started to change with the introduction of more advanced scripting capabilities, beginning with [BIP16 (P2SH)](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki). With P2SH, the script component can be almost anything. A good example is [Peter Todd's bounties](https://bitcointalk.org/index.php?topic=293382.0) for finding cryptographic hash collisions. But a more typical use case for P2SH invloves multisig wallets, where funds are controlled by more than one public key.
 
 P2SH-enabled multisig means that addresses are no longer predictable, because the order of the public keys included matters. For example, a 2-of-3 P2SH multisig address could be built 6 different ways, depending on how you order the 3 public keys. If you don't back up the redeemScript, which contains this order, you might not even know which addresses belong to you! All is not lost, since you can "try out" all permutations. But this brute-force approach is problematic, as we shall see later on.
 
@@ -29,7 +28,6 @@ HD wallets also make addresses less predictable. Since now the user primarily de
 
 To sum up: the introduction of BIP16 and BIP32 meant that possession of the private keys no longer suffices. You also need the redeemScript (for BIP16) and derivation path (for BIP32).
 
-===
 <h2>SegWit and Taproot</h2>
 
 Things became even more complicated with the activation of [Segregated Witness](https://en.bitcoin.it/wiki/Segregated_Witness), a much-anticipated suite of protocol updates that fix critical issues such as transaction malleability.
@@ -50,8 +48,8 @@ During this period, wallet providers coped with this complexity through their ow
 
 But it doesn't stop here. Soon Bitcoin will have even more advanced scripting capabilities, such as [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki). When that happens, the number of address permutations increases even further.
 
-===
 <h2>Solution: Descriptor Language</h2>
+
 Perhaps realizing the urgency of this problem, Core developer Pieter Wuille set out to solve it. Pieter realized what we ultimately lacked was a higher-level language to tame this monstrous complexity. His solution, the [Output Descriptor language](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md) (descriptor for short) , elegantly solves this problem.
 
 The purpose of the descriptor language is to express how keys are derived and how precisely they are used in creating  addresses.
@@ -63,5 +61,6 @@ The days of "not your keys, not your coins" are over. Perhaps it is more fitting
 "Not your keys, not your descriptors, not your coins".
 
 ===
+
 *Nunchuk (Engineering) Journal is a collection of articles that discuss all things technical in Bitcoin. The journal documents our thought processes in the creation of Nunchuk, how things impact the user, and observations about the industry at large.*
 
