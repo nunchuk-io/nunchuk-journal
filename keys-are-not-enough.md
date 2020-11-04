@@ -12,7 +12,7 @@ Bitcoin addresses are constructed using 2 components: a data component, and a sc
 
 ![Early days of Bitcoin: P2PK and P2PKH](keys_are_not_enough_01.jpg "Early days of Bitcoin: P2PK and P2PKH")
 
-In the early days of Bitcoin, both the data component and the script component were incredibly simple. The data is usually one single public key in uncompressed form. The script component is similarly straightforward. It either involves a single operation, OP_CHECKSIG (P2PK), or a slightly longer list of operations (P2PKH), but still highly predictable. In those days, the addresses act ultimately as aliases for the public keys. They are practically one and the same.
+In the early days of Bitcoin, both the data component and the script component were incredibly simple. The data is usually one single public key in uncompressed form. The script component is similarly straightforward. It either involves a single operation, OP_CHECKSIG (P2PK), or a slightly longer list of operations (P2PKH), but still highly predictable. In those days, the addresses act ultimately as aliases for the public keys.
 
 In this context, the aforementioned slogan makes sense. Whoever posseses the private keys, can deduce the public keys. And from the public keys, the addresses. So possession of the private keys means that:
 * You know which addresses your bitcoins are stored in, and 
@@ -26,9 +26,9 @@ Things started to change with the introduction of more advanced scripting capabi
 
 P2SH-enabled multisig means that addresses are no longer predictable, because the order of the public keys included matters. For example, a 2-of-3 P2SH multisig address could be built 6 different ways, depending on how you order the 3 public keys. If you don't back up the redeemScript, which contains this order, you might not even know which addresses belong to you! All is not lost, since you can "try out" all permutations. But this brute-force approach is costly and non-scalable, as we shall see later on.
 
-Another development occured on the key component side of the address. Some time after P2SH was created, Hierarchical Deterministic (HD) wallets arrived. HD wallets were later standardized in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). Prior to HD wallets, a wallet is simply a collection of random private keys, the keys baring no relationship to one another. HD wallets mean that the private keys belong to the same family, all generated from the same root, called the master key.
+Another development occured on the key component side of the address. Some time after P2SH was created, Hierarchical Deterministic (HD) wallets arrived. HD wallets were later standardized in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). Prior to HD wallets, a wallet is simply a collection of random private keys. HD wallets create a key hierarchy, so that the private keys belong to the same family, all generated from the same root, called the master key.
 
-HD wallets also make addresses less predictable. Since now the user primarily deals with the master key, for each address, you need to know from which lineage the public key descended from the master key. This is called BIP32 derivation path. Without knowing the derivation path, you would also not be able to tell which addresses on the blockchain belongs to you.
+HD wallets also make addresses less predictable. With HD wallets, the user primarily deals with the master key. That means that for each address, you need to know from which lineage that public key descended from the master key. This is called BIP32 derivation path. Without knowing the derivation path, you would also not be able to tell which addresses on the blockchain belongs to you.
 
 To sum up: the introduction of BIP16 and BIP32 meant that possession of the private keys no longer suffices. You also need the redeemScript (for BIP16) and derivation path (for BIP32).
 
@@ -50,7 +50,7 @@ Levels of permutations:
 
 This is where we are today. Both the key component and the script component of the address have gotten highly complex that possession of private keys makes up only a small part of ownership.
 
-During this period, wallet providers coped with this complexity through their own ways, often ad-hoc and non-standard, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one provider in another provider requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
+During this period, wallet vendors coped with this complexity through their own ways, often ad-hoc and non-standard, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one vendor in another requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
 
 But it doesn't stop here. Soon Bitcoin will have even more advanced scripting capabilities, such as [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki). When that happens, the number of address permutations increases even further.
 
@@ -58,11 +58,11 @@ But it doesn't stop here. Soon Bitcoin will have even more advanced scripting ca
 
 <h2>Solution: Descriptor Language</h2>
 
-Perhaps realizing the urgency of this problem, Core developer Pieter Wuille set out to solve it. Pieter realized what we ultimately lacked was a higher-level language to tame this monstrous complexity. His solution, the [Output Descriptor language](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md) (descriptor for short) , elegantly solves this problem.
+Perhaps realizing the urgency of this problem, Core developer Pieter Wuille set out to solve it. Pieter realized what we ultimately lacked was a higher-level language to tame this monstrous complexity. His solution, the [Output Descriptor language](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md) (descriptor for short), elegantly solves this problem.
 
-The purpose of the descriptor language is to express how keys are derived and how precisely they are used in creating  addresses.
+The purpose of the descriptor language is to express precisely how keys are derived and how they are used in creating  addresses.
 
-With descriptors, the user only needs to back up 2 things for their wallet: the master keys (or BIP39 seeds), and the descriptors. There would no longer be any ambiguity, either in knowing which addresses on the blockchain belong to you, or how to recover the wallet using third-party tools.
+With descriptors, the user only needs to back up 2 things for their wallet: the master keys (or [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) seeds), and the descriptors. There would no longer be any ambiguity, either in knowing which addresses on the blockchain belong to you, or how to recover the wallet using third-party tools.
 
 The days of "not your keys, not your coins" are over. Perhaps it is more fitting now to say:
 
