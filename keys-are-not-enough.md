@@ -20,7 +20,7 @@ In this context, the aforementioned slogan makes sense. Whoever posseses the pri
 
 Things started to change with the introduction of more advanced scripting capabilities, beginning with [BIP16 (P2SH)](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki). With P2SH, the script component can be almost anything. A good example is [Peter Todd's bounties](https://bitcointalk.org/index.php?topic=293382.0) for finding cryptographic hash collisions. But a more typical use case for P2SH invloves multisig wallets, where funds are controlled by more than one public key.
 
-P2SH-enabled multisig means that addresses are no longer predictable, because the order of the public keys included matters. For example, a 2-of-3 P2SH multisig address could be built 6 different ways, depending on how you order the 3 public keys. If you don't back up the redeemScript, which contains this order, you might not even know which addresses belong to you! All is not lost, since you can "try out" all permutations. But this brute-force approach is problematic, as we shall see later on.
+P2SH-enabled multisig means that addresses are no longer predictable, because the order of the public keys included matters. For example, a 2-of-3 P2SH multisig address could be built 6 different ways, depending on how you order the 3 public keys. If you don't back up the redeemScript, which contains this order, you might not even know which addresses belong to you! All is not lost, since you can "try out" all permutations. But this brute-force approach is costly and non-scalable, as we shall see later on.
 
 Another development occured on the key component side of the address. Some time after P2SH was created, Hierarchical Deterministic (HD) wallets arrived. HD wallets were later standardized in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki). Prior to HD wallets, a wallet is simply a collection of random private keys, the keys baring no relationship to one another. HD wallets mean that the private keys belong to the same family, all generated from the same root, called the master key.
 
@@ -44,7 +44,7 @@ Levels of permutations:
 
 This is where we are today. Both the key component and the script component of the address have gotten highly complex that possession of private keys makes up only a small part of ownership.
 
-During this period, wallet providers coped with this complexity through their own ways, often ad-hoc and non-standard, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one provider in another provider requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicates the process and confuses the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
+During this period, wallet providers coped with this complexity through their own ways, often ad-hoc and non-standard, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one provider in another provider requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
 
 But it doesn't stop here. Soon Bitcoin will have even more advanced scripting capabilities, such as [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki). When that happens, the number of address permutations increases even further.
 
@@ -58,7 +58,7 @@ With descriptors, the user only needs to back up 2 things for their wallet: the 
 
 The days of "not your keys, not your coins" are over. Perhaps it is more fitting now to say:
 
-"Not your keys, not your descriptors, not your coins".
+**"Not your keys, not your descriptors, not your coins".**
 
 ===
 
