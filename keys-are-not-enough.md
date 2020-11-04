@@ -2,7 +2,7 @@
 
 This slogan (perhaps coined by Bitcoin evangelist Andreas Antonopoulos) has been popular among the Bitcoin community for a long time. "Keys" here refer to the private keys, implying that those who are in possession of the private keys, own the bitcoins controlled by those keys.
 
-While this slogan was true in the early days of Bitcoin, it is becoming increasingly irrelevant. The reason is the introduction and growing adoption of more advanced smart contracts, including, but not limited to, multisig.
+While this slogan was true in the early days of Bitcoin, it is becoming increasingly irrelevant. The reason is the growing sophistication of smart contracts, including, but not limited to, multisig.
 
 Since Nunchuk's mission is the proliferation of multisig, it is crucial that the first step is to clear up this misconception. The rest of this article explains why the above slogan no longer suffices.
 
