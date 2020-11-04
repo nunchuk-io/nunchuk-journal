@@ -50,7 +50,7 @@ Levels of permutations:
 
 This is where we are today. Both the key component and the script component of the address have gotten highly complex that possession of the private keys makes up only a small part of ownership.
 
-During this period, wallet vendors coped with this rising complexity through their own ad-hoc, propietary ways, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one vendor in another requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
+During this period, wallet vendors coped with this rising complexity through their own ad-hoc, propietary ways, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one vendor in another requires looking up magic "recovery paths" and manually running conversion scripts. Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
 
 But it doesn't stop here. Soon Bitcoin will have even more advanced scripting capabilities, such as [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki). When that happens, the number of address permutations increases even further.
 
