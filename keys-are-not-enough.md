@@ -12,6 +12,8 @@ Bitcoin addresses are constructed using 2 components: a data component, and a sc
 
 In the early days of Bitcoin, both the data component and the script component were incredibly simple. The data is usually one single public key in uncompressed form. The script component is similarly straightforward. It either involves a single operation, OP_CHECKSIG (P2PK), or a slightly longer list of operations (P2PKH), but still highly predictable. In those days, the addresses act ultimately as aliases for the public keys. They are practically one and the same.
 
+![Early days of Bitcoin: P2PK and P2PKH](keys_are_not_enough_01.jpg)
+
 In this context, the aforementioned slogan makes sense. Whoever posseses the private keys, can deduce the public keys. And from the public keys, the addresses. So possession of the private keys means that:
 * You know which addresses your bitcoins are stored in, and 
 * How to unlock the bitcoins, once you know the addresses.
@@ -28,9 +30,13 @@ HD wallets also make addresses less predictable. Since now the user primarily de
 
 To sum up: the introduction of BIP16 and BIP32 meant that possession of the private keys no longer suffices. You also need the redeemScript (for BIP16) and derivation path (for BIP32).
 
+![BIP16 (P2SH) and BIP32 (HD wallets)](keys_are_not_enough_02.jpg)
+
 <h2>SegWit and Taproot</h2>
 
 Things became even more complicated with the activation of [Segregated Witness](https://en.bitcoin.it/wiki/Segregated_Witness), a much-anticipated suite of protocol updates that fix critical issues such as transaction malleability.
+
+![Segregated Witness (SegWit)](keys_are_not_enough_03.jpg)
 
 SegWit introduced a new and improved address format, called Bech32.
 
@@ -47,6 +53,8 @@ This is where we are today. Both the key component and the script component of t
 During this period, wallet providers coped with this complexity through their own ways, often ad-hoc and non-standard, which led to unfortunate consequences. First, wallets became less compatible with one another. As an example, to recover a wallet created with one provider in another provider requires looking up magic "recovery paths". Another negative side effect is the invention of poor concepts such as YPUB/ZPUB that further complicate the process and confuse the user. We will discuss YPUB/ZPUB and why they should be avoided separately in another article.
 
 But it doesn't stop here. Soon Bitcoin will have even more advanced scripting capabilities, such as [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki). When that happens, the number of address permutations increases even further.
+
+![Soon: Taproot and more](keys_are_not_enough_04.jpg)
 
 <h2>Solution: Descriptor Language</h2>
 
