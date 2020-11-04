@@ -70,5 +70,5 @@ The days of "not your keys, not your coins" are over. Perhaps it is more fitting
 
 ===
 
-*Nunchuk (Engineering) Journal is a collection of articles that discuss all things technical in Bitcoin. The journal documents our thought processes in the creation of Nunchuk, how things impact the user, and observations about the industry at large.*
+*Nunchuk (Engineering) Journal is a collection of articles that discuss all things technical in Bitcoin. The journal documents our thought processes in the creation of Nunchuk, how things impact the user, and observations about the industry at large. You can download the Nunchuk wallet by visiting our website at https://nunchuk.io*
 
