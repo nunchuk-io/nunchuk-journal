@@ -1,4 +1,4 @@
-### Bitcoin 101 Series: The Origin of Bitcoin
+# Bitcoin 101 Series: The Origin of Bitcoin
 
 Bitcoin has a spiritual origin and a technological origin. Satoshi also added
 his own inventions to complete the system.
