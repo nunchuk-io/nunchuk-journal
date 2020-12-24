@@ -1,6 +1,6 @@
 # Bitcoin 101 Series: Cryptography
 
-While Proof-of-Work secures the entire network and the Bitcoin ledger, cryptography is what secures transactions between individuals.
+While [Proof-of-Work](https://github.com/nunchuk-io/nunchuk-journal/blob/main/pow.md) secures the entire network and the Bitcoin ledger, cryptography is what secures transactions between individuals.
 
 ## Table of contents
 1. [History](#history)
