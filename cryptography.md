@@ -67,6 +67,13 @@ rounds. See
 
 ### Asymmetric Ciphers, a.k.a. Public-Key Cryptography <a name="asymmetric-ciphers"></a>
 
+Asymmetric ciphers were invented in 1970s:
+
+* Ellis & Cocks (1970–1973): classified research by the British government
+* Diffie & Hellman (1976): first public discovery
+* Rivest–Shamir–Adleman or RSA (1977), first implementation of Diffie & Hellman’s
+idea
+
 The fundamental idea behind asymmetric ciphers is based on the
 realization that in math, there are certain functions that seem
 [one-way](https://en.wikipedia.org/wiki/One-way_function) (a.k.a. “trapdoor
@@ -101,13 +108,6 @@ messages.
 The scheme above is used by
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)), one of the most widely
 used asymmetric ciphers.
-
-Public-key cryptography was invented in 1970s:
-
-* Ellis & Cocks (1970–1973): classified research by the British government
-* Diffie & Hellman (1976): first public discovery
-* Rivest–Shamir–Adleman or RSA (1977), first implementation of Diffie & Hellman’s
-idea
 
 Besides integer/prime factorization, another math problem often used in
 public-key cryptography is the **[discrete
@@ -155,7 +155,7 @@ To calculate the sum of point A and point B, one would draw a line through A and
 
 ![ECC Addition](crypto101_03.png "ECC Addition")
 
-To calculate the sum of point A and itself (point-doubling), one would draw a line through A that is tangent to the curve. This line will also intersect the curve at another point D. The reflection of point D over the y-axis is the doubling of point A.
+To calculate the sum of point A and itself (point-doubling), one would draw a line through A that is tangent to the curve. This line will likely intersect the curve at another point D. The reflection of point D over the y-axis is the doubling of point A.
 
 Rules like these might seem arbitrary, but this theoretical world has many interesting properties that normal math doesn't have.
 
@@ -209,7 +209,7 @@ So **nG = 0 means that point G and point (n-1)G forms a vertical line**.
 
 ### Bitcoin’s Curve <a name="bitcoins-curve"></a>
 
-Here are details of Bitcoin's elliptic curve, secp256k1:
+Here are the details of Bitcoin's elliptic curve, secp256k1:
 
 * y<sup>2</sup> = x<sup>3</sup> + 7
 * Prime number p = 2<sup>256</sup> - 2<sup>32</sup> - 977
