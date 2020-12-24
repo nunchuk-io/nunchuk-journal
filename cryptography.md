@@ -182,7 +182,7 @@ generator point (G), you would need to solve the elliptic-curve discrete log
 problem.
 
 The diagram below illustrates how you can quickly generate points on the curve by
-keeping doubling G: 2G, 4G, 8G etc. 5G, for example, can be calculated by adding 4G to G.
+keeping doubling G: 2G, 4G, 8G etc. 5G, then, can be calculated by adding 4G to G.
 
 ![ECC Scalar Operation](crypto101_04.png "ECC Scalar Operation")
 
