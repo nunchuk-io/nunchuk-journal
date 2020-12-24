@@ -22,11 +22,15 @@ Classical ciphers, while vary a lot, fall mostly into 2 categories:
 
 * [Substitution ciphers](https://en.wikipedia.org/wiki/Substitution_cipher): units of plaintext (usually single characters) are replaced according to some fixed rules. For example, in Caesar cipher: A->D, T->W, etc.
 
-![Caesar cipher](crypto101_01.png "Caesar cipher")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_01.png" alt="Caesar cipher">
+</p>
 
 * [Transposition ciphers](https://en.wikipedia.org/wiki/Transposition_cipher): units of plaintext are shifted to different positions according to some fixed rules. For example, the “scytale”, used by ancient Greeks, wraps a strip of parchment around a rod with x faces (10 in picture below).
 
-![Transposition cipher](crypto101_02.png "Transposition cipher")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_02.png" alt="Transposition cipher">
+</p>
 
 ## Modern cryptography <a name="modern-cryptography"></a>
 
@@ -153,7 +157,9 @@ points on the curve. For example, here is how addition is defined:
 
 To calculate the sum of point A and point B, one would draw a line through A and B. This line will intersect the curve at a third point, called point C. The reflection of point C over the y-axis is the sum of point A and point B.
 
-![ECC Addition](crypto101_03.png "ECC Addition")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_03.png" alt="ECC Addition">
+</p>
 
 To calculate the sum of point A and itself (point-doubling), one would draw a line through A that is tangent to the curve. This line will likely intersect the curve at another point D. The reflection of point D over the y-axis is the doubling of point A.
 
@@ -184,7 +190,9 @@ problem.
 The diagram below illustrates how you can quickly generate points on the curve by
 keeping doubling G: 2G, 4G, 8G etc. 5G, then, can be calculated by adding 4G to G.
 
-![ECC Scalar Operation](crypto101_04.png "ECC Scalar Operation")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_04.png" alt="ECC Scalar Multiplication">
+</p>
 
 In actual cryptography applications, elliptic curves are defined over a finite field.
 Think of a finite field as a modulo operation: the values don’t go to infinity
@@ -205,7 +213,9 @@ artificial point on a 2D plane, but does exist in higher dimensions).
 
 So **nG = 0 means that point G and point (n-1)G forms a vertical line**.
 
-![ECC number zero](crypto101_05.png "ECC number zero")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_05.png" alt="ECC point-at-infinity">
+</p>
 
 ### Bitcoin’s Curve <a name="bitcoins-curve"></a>
 
@@ -237,7 +247,10 @@ that public key.
 In fact, that is precisely how Satoshi described Bitcoin transactions in his
 white paper.
 
-![In initial versions, keys ~= addresses](crypto101_06.png "In initial versions, keys ~= addresses")
+<p align="center">
+  <img width="600" src="https://github.com/nunchuk-io/nunchuk-journal/blob/main/crypto101_06.png" alt="Original Bitcoin transaction">
+</p>
+
 
 However, since Satoshi’s days, “addresses” have evolved significantly. **Almost
 no one uses public keys directly as addresses anymore** (a.k.a.
