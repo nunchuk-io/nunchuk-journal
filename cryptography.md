@@ -15,7 +15,7 @@ While Proof-of-Work secures the entire network and the Bitcoin ledger, cryptogra
 
 ## History <a name="history"></a>
 The desire to keep (and share) secrets has existed probably as long as humans have lived. The earliest known usage of encryption goes back to [1900
-BC](https://en.wikipedia.org/wiki/Encryption#History) in Egypt. Another famous encryption technique dated back to the Roman Empire, called the [Caesar
+BC](https://en.wikipedia.org/wiki/Encryption#History) in Egypt. One famous encryption technique dated back to the Roman Empire, called the [Caesar
 cipher](https://en.wikipedia.org/wiki/Caesar_cipher), used by Julius Caesar in his communication.
 
 Classical ciphers, while vary a lot, fall mostly into 2 categories:
